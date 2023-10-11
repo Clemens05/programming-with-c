@@ -1,6 +1,27 @@
 #include <stdio.h>
 
-void getraenke() {
+void e() {
+    int x = 34;
+    double result = 0;
+
+    for(int i = 0; i < x; ++i) {
+        int fak_result = 1;
+
+        for(int j = i; j >= 1; --j) {
+            fak_result = fak_result * j;
+        }
+
+        if (i == 0) {
+            fak_result = 1;
+        }
+
+        result += 1 / (double)fak_result;
+    }
+
+    printf("e ≈ %.17f\n", result);
+}
+
+void beverages() {
     int sorte;
     float preis;
     float einwurf;
@@ -9,44 +30,50 @@ void getraenke() {
     const double price_cola = 1.00;
     const double price_beer = 2.00;
 
-    printf("1 - Wasser %.2f €\n", price_water);
-    printf("2 - Cola   %.2f €\n", price_cola);
-    printf("3 - Bier   %.2f €\n", price_beer);
-    printf("Wählen Sie ein Getränk: ");
+    const int index_water = 1;
+    const int index_cola = 2;
+    const int index_beer = 3;
 
-    scanf("%d", &sorte);
-
-    printf("\n\nWerfen Sie eine Münze ein (0.5, 1, 2): ");
-    scanf("%f", &einwurf);
+    printf("%d - Wasser %.2f €\n", index_water, price_water);
+    printf("%d - Cola   %.2f €\n", index_cola, price_cola);
+    printf("%d - Bier   %.2f €\n", index_beer, price_beer);
 
     printf("\n\n");
 
+    do {
+        printf("Wählen Sie ein Getränk: ");
+        scanf("%d", &sorte);
+    } while (!(sorte == index_water || sorte == index_cola || sorte == index_beer));
+
+    int price;
     switch (sorte) {
         case 1:
-            if (einwurf == price_water) {
-                printf("...gibt Wasser aus\n");
-            } else {
-                printf("Falscher Einwurf\n");
-            }
+            price = price_water;
             break;
         case 2:
-            if (einwurf == price_cola) {
-                printf("...gibt Cola aus\n");
-            } else {
-                printf("Falscher Einwurf\n");
-            }
+            price = price_cola;
             break;
         case 3:
-            if (einwurf == price_beer) {
-                printf("..gibt Bier aus\n");
-            } else {
-                printf("Falscher Einwurf\n");
-            }
+            price = price_beer;
             break;
         default:
-            printf("Ungültige Eingabe\n");
+            price = 0;
             break;
     }
+
+    printf("\n\n");
+
+    do {
+        float new_einwurf;
+        printf("Bitte werfen Sie Münzen ein (Stand: %.2f €): ", einwurf);
+        scanf("%f", &new_einwurf);
+
+        einwurf += new_einwurf;
+    } while (einwurf < price);
+
+    printf("\n\n");
+
+    printf("Gibt Getränk %d und %.2f € Rückgeld aus...\n", sorte, einwurf - price);
 }
 
 void leap_year() {
@@ -90,7 +117,9 @@ int main() {
 
     // leap_year();
 
-    getraenke();
+    // beverages();
+
+    e();
 
     return 0;
 }
