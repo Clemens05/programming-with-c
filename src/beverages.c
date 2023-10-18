@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 void beverages() {
     int sorte;
     float preis;

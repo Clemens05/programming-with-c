@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 void leap_year() {
     printf("Gib ein Jahr ein: ");
     int date;

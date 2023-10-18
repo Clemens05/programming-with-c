@@ -1,20 +1,19 @@
+#include <stdio.h>
+
 void e_calc() {
-    const int x = 34;
-    double result = 0;
+    long long int fak = 1;
+    int i = 1;
+    double eps = 10e-20;
+    double e_akt = 0;
+    double e_pre = -1;
 
-    for(int i = 0; i < x; ++i) {
-        int fak_result = 1;
+    while ((e_akt - e_pre) >= eps) {
+        e_pre = e_akt;
+        e_akt += 1 / (double) fak;
 
-        for(int j = i; j >= 1; --j) {
-            fak_result = fak_result * j;
-        }
-
-        if (i == 0) {
-            fak_result = 1;
-        }
-
-        result += 1 / (double)fak_result;
+        fak *= i;
+        i++;
     }
 
-    printf("e ≈ %.17f\n", result);
+    printf("e ≈ %.20f\n", e_akt);
 }
