@@ -1,5 +1,6 @@
-int bit_operators() {
-    int c = 9 >> 1;
+unsigned int bit_operators() {
+    /* 1001 1000 = 0100 */
+    unsigned int c = 9 >> 1;
 
     return c;
 }
