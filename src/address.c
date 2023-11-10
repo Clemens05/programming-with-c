@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-struct SAddress {
+struct _Address {
     char name[255];
     char roadName[255];
     char houseNumber[255];
@@ -8,7 +8,7 @@ struct SAddress {
     char city[255];
 };
 
-typedef struct SAddress Address;
+typedef struct _Address Address;
 
 const int length = 100;
 Address addresses[length];
@@ -62,4 +62,38 @@ void swap_addresses(int pos1, int pos2) {
 
     addresses[pos1] = address2;
     addresses[pos2] = address1;
+}
+
+void addresses_example() {
+    add_address(1,
+                "Clemens Rustemeier",
+                "Fürstenallee",
+                "32b",
+                34509,
+                "Paderborn");
+
+    add_address(8,
+                "Max Mustermann",
+                "Detmolder Straße",
+                "53",
+                32902,
+                "Paderborn");
+
+    add_address(15,
+                "M. Musterfrau",
+                "Kurfürstendamm",
+                "192c",
+                24390,
+                "Berlin");
+
+    add_address(15,
+                "Prof. Dr. M. Musterfrau",
+                "Kurfürstendamm",
+                "192c",
+                24390,
+                "Berlin");
+
+    swap_addresses(1, 8);
+
+    print_addresses();
 }

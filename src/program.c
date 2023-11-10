@@ -12,37 +12,5 @@
 #include "address.c"
 
 int main() {
-    add_address(1,
-                "Clemens Rustemeier",
-                "Fürstenallee",
-                "32b",
-                34509,
-                "Paderborn");
-
-    add_address(8,
-                "Max Mustermann",
-                "Detmolder Straße",
-                "53",
-                32902,
-                "Paderborn");
-
-    add_address(15,
-                "M. Musterfrau",
-                "Kurfürstendamm",
-                "192c",
-                24390,
-                "Berlin");
-
-    add_address(15,
-                "Prof. Dr. M. Musterfrau",
-                "Kurfürstendamm",
-                "192c",
-                24390,
-                "Berlin");
-
-    swap_addresses(1, 8);
-
-    print_addresses();
-
-    return 0;
+    addresses_example();
 }

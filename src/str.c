@@ -8,7 +8,7 @@ int str_len(char str[]) {
     return i;
 }
 
-void flip_str(char str[]) {
+void str_flip(char str[]) {
     int i = 0;
     int j = str_len(str) - 1;
 
